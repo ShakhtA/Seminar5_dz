@@ -53,6 +53,18 @@ double FindMin(double[] arr)    // Функция находит минимал�
     return min_arr;
 }
 
+void PrintResult(double[] arr, double delta_min_max)  // Функция выводит результат на экран
+{
+    Console.Write("[");
+    for (int i = 0; i < arr.Length; i++)
+    {
+        if (i != arr.Length - 1)
+            Console.Write("{0:f3} ", arr[i]);
+        else
+            Console.Write("{0:f3}", arr[i]);
+    }
+    Console.WriteLine($"] -> {string.Format("{0:f3}", delta_min_max)}");
+}
 
 //------------------------------------------------------------
 Console.Clear();
@@ -60,4 +72,5 @@ Console.Clear();
 int size_array = GetSizeArray("Введите размер массива: ", "Ошибка ввода!"); 
 double[] array = GetArray(size_array);
 double delta = FindDelta(array);
-Console.Write($"[{string.Join(" ", array)}] -> {string.Format("{0:f2}", delta)}");
+PrintResult(array, delta);
+Console.WriteLine();
